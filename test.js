@@ -1,15 +1,10 @@
-# scatternet
-
-A lightweight peer-to-peer network framework.
-
-## Decentralised chat appliction example
-
-``` javascript
 const { Node } = require("./");
 
-const node = new Node("simplechat");
+const room = process.argv[2] || "lobby";
 
-node.directory(6000, "public-directory-example.net");
+const node = new Node(room);
+
+node.directory(6000);
 node.listen();
 
 node.on("message", ({ peer, msg }) => {
@@ -20,7 +15,5 @@ node.on("message", ({ peer, msg }) => {
 process.stdin.on("readable", () => {
 	const chunk = process.stdin.read();
 	process.stdout.write("- ");
-
 	node.broadcast(chunk);
 });
-```
