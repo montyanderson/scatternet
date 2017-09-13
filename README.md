@@ -5,7 +5,7 @@ A lightweight peer-to-peer network framework.
 ## Decentralised chat appliction example
 
 ``` javascript
-const { Node } = require("./");
+const { Node } = require("scatternet");
 
 const node = new Node("simplechat");
 
