@@ -12,8 +12,18 @@ node.on("message", ({ peer, msg }) => {
 	process.stdout.write("- ");
 });
 
+node.on("peer", peer => {
+	process.stdout.write(`\r${peer} joined the chat!\n`);
+	process.stdout.write("- ");
+});
+
+process.stdout.write("- ");
+
 process.stdin.on("readable", () => {
 	const chunk = process.stdin.read();
-	process.stdout.write("- ");
-	node.broadcast(chunk);
+
+	if(chunk) {
+		process.stdout.write("- ");
+		node.broadcast(chunk);
+	}
 });
