@@ -4,7 +4,7 @@ const room = process.argv[2] || "lobby";
 
 const node = new Node(room);
 
-node.directory(6000, "ff.montyanderson.net");
+node.directory(6000, "185.177.21.134");
 node.listen();
 
 node.on("message", ({ peer, msg }) => {
